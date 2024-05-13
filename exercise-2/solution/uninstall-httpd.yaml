@@ -1,0 +1,22 @@
+---
+- name: Install Apache and start httpd
+  hosts: host0.lab.drv.internal
+  tasks:
+    - name: Ensure httpd is stopped and disabled
+      ansible.builtin.service:
+        name: httpd
+        state: stopped
+        enabled: false
+    - name: Ensure file is delete
+      ansible.builtin.file:
+        path: /var/www/html/index.html
+        state: absent
+    - name: Remove httpd package
+      ansible.builtin.dnf:
+        name: httpd
+        state: removed
+    - name: Remove firewall rule
+      ansible.posix.firewalld:
+        service: http
+        state: disabled
+        permanent: true

@@ -1,0 +1,9 @@
+---
+- name: Ensure telnet installed
+  hosts: host0.lab.drv.internal
+  tasks:
+    - name: Ensure telnet present
+      ansible.builtin.dnf:
+        name: telnet
+        state: present
+

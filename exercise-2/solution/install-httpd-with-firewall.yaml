@@ -1,0 +1,23 @@
+---
+- name: Install Apache and start httpd
+  hosts: host0.lab.drv.internal
+  tasks:
+    - name: Install httpd package
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+    - name: Copy content file
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+    - name: Ensure httpd is running
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
+    - name: Permit access to http service
+      ansible.posix.firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: true

@@ -1,0 +1,21 @@
+Script started on 2024-05-09 11:17:43+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
+]0;user@workstation:~/drv-labs/lab-2[?2004h$ ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/drv-labs/lab-2[?2004h$ ansible-playbook playbook.yaml --syntax-check[1P-check[1P-check[1P-check[1P-check[1P-check[1P-check[1Pcheck
+[?2004l
+PLAY [Ensure telnet installed] *****************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Ensure telnet present] *******************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+PLAY RECAP *************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/drv-labs/lab-2[?2004h$ exit
+[?2004lexit
+
+Script done on 2024-05-11 11:18:28+02:00 [COMMAND_EXIT_CODE="0"]

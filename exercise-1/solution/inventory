@@ -1,0 +1,15 @@
+[bavaria_north]
+host1.lab.drv.internal
+host3.lab.drv.internal
+
+[bavaria_south]
+host0.lab.drv.internal
+host2.lab.drv.internal
+
+[net_14]
+192.168.14.[9:14]
+
+[bavaria:children]
+bavaria_north
+bavaria_south
+net_14
