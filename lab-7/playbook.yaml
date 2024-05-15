@@ -1,0 +1,9 @@
+---
+- name: Conditionals and loops
+  hosts: host0.lab.drv.internal
+  tasks:
+    - name: print out numbers
+      ansible.builtin.debug:
+        var: item
+      loop: [ 0, 2, 4, 6, 8, 10 ]
+      when: item > 5
