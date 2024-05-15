@@ -1,0 +1,13 @@
+---
+- name: Demonstrate variable usage
+  hosts:
+    - host0.lab.drv.internal
+    - host1.lab.drv.internal
+  vars:
+    user: guethb
+  tasks:
+    - name: Create user {{ user }}
+      ansible.builtin.user:
+        name: "{{ user }}"
+        state: present
+

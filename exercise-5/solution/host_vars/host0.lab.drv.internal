@@ -1,0 +1,5 @@
+users:
+  - name: mueller
+    groups: wheel
+  - name: mayer
+    groups: root

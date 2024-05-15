@@ -1,0 +1,58 @@
+Script started on 2024-05-14 21:09:52+02:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="120" LINES="30"]
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ansible-playbook playbook.yaml --syntax-check[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck
+[?2004l
+PLAY [Demonstrate variable usage] **************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Install package httpd] *******************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+
+PLAY RECAP *************************************************************************************************************
+[0;32mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;32mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ssh host0.lab.drv.internal
+[?2004lLast login: Tue May 14 21:10:33 2024 from 10.0.0.1
+]0;user@host0:~[?2004h[user@host0 ~]$ rpm -q httpd
+[?2004lhttpd-2.4.57-8.el9.x86_64
+]0;user@host0:~[?2004h[user@host0 ~]$ rpm -q httpd[K[K[K[K[Kmysql-server
+[?2004lpackage mysql-server is not installed
+]0;user@host0:~[?2004h[user@host0 ~]$ exit
+[?2004llogout
+Connection to host0.lab.drv.internal closed.
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ssh host0.lab.drv.internal[1P.lab.drv.internal1.lab.drv.internal
+[?2004lLast login: Tue May 14 21:10:34 2024 from 10.0.0.1
+]0;user@host1:~[?2004h[user@host1 ~]$ rpm -q httpd
+[?2004lpackage httpd is not installed
+]0;user@host1:~[?2004h[user@host1 ~]$ rpm -q httpd[K[K[K[K[Kmysql-server
+[?2004lmysql-server-8.0.36-1.el9_3.x86_64
+]0;user@host1:~[?2004h[user@host1 ~]$ exit
+[?2004llogout
+Connection to host1.lab.drv.internal closed.
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ansible-playbook rollback.yaml 
+[?2004l
+PLAY [Demonstrate variable usage] **************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+[0;32mok: [host1.lab.drv.internal][0m
+
+TASK [Remove package httpd] ********************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+[0;33mchanged: [host1.lab.drv.internal][0m
+
+PLAY RECAP *************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ exit
+[?2004lexit
+
+Script done on 2024-05-14 21:16:02+02:00 [COMMAND_EXIT_CODE="0"]

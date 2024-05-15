@@ -1,0 +1,11 @@
+---
+- name: Demonstrate variable usage
+  hosts:
+    - web
+    - database
+  tasks:
+    - name: Remove package {{ package }}
+      ansible.builtin.dnf:
+        name: "{{ package }}"
+        state: absent
+

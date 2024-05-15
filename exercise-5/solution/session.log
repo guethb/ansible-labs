@@ -1,0 +1,197 @@
+Script started on 2024-05-14 23:29:08+02:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="156" LINES="41"]
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ansible-playbook playbook.yaml --syntax-check[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck
+[?2004l
+PLAY [Create users with loop using host variables] *********************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [User creation task] **********************************************************************************************************************************
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'fischer', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mueller', 'groups': 'wheel'})[0m
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'schmidt', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mayer', 'groups': 'root'})[0m
+
+PLAY RECAP *************************************************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ansible-playbook playbook.yaml --check[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kssh host0.ka[K[Klab.drv.internal "sudo cat /etc/passwd"
+[?2004lroot:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+sssd:x:998:996:User for sssd:/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+chrony:x:997:995:chrony system user:/var/lib/chrony:/sbin/nologin
+user:x:1000:1000:DRV User:/home/user:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ssh host0.lab.drv.internal "sudo cat /etc/passwd"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11Pansible-playbook playbook.yaml --check[K[K[K[K[K[K[K[K
+[?2004l
+PLAY [Create users with loop using host variables] *********************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+[0;32mok: [host1.lab.drv.internal][0m
+
+TASK [User creation task] **********************************************************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mueller', 'groups': 'wheel'})[0m
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'fischer', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mayer', 'groups': 'root'})[0m
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'schmidt', 'groups': 'root'})[0m
+
+PLAY RECAP *************************************************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ssh host0.lab.drv.internal "sudo cat /etc/passwd"
+[?2004lroot:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+sssd:x:998:996:User for sssd:/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+chrony:x:997:995:chrony system user:/var/lib/chrony:/sbin/nologin
+user:x:1000:1000:DRV User:/home/user:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+mueller:x:1001:1001::/home/mueller:/bin/bash
+mayer:x:1002:1002::/home/mayer:/bin/bash
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ssh host0.lab.drv.internal "sudo cat /etc/passwd"[1P[1@1
+[?2004lroot:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+sssd:x:998:996:User for sssd:/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+chrony:x:997:995:chrony system user:/var/lib/chrony:/sbin/nologin
+user:x:1000:1000:DRV User:/home/user:/bin/bash
+mysql:x:27:27:MySQL Server:/var/lib/mysql:/sbin/nologin
+fischer:x:1001:1001::/home/fischer:/bin/bash
+schmidt:x:1002:1002::/home/schmidt:/bin/bash
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ansible-playbook rollback.yaml --syntax-check
+[?2004l
+playbook: rollback.yaml
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ansible-playbook rollback.yaml --syntax-check[1P-check[1P-check[1P-check[1P-check[1P-check[1P-check[1Pcheck
+[?2004l
+PLAY [Rollback exercise 4] *********************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+[0;32mok: [host1.lab.drv.internal][0m
+
+TASK [Rollback user creation task] *************************************************************************************************************************
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'fischer', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mueller', 'groups': 'wheel'})[0m
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'schmidt', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mayer', 'groups': 'root'})[0m
+
+PLAY RECAP *************************************************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ssh host0.lab.drv.internal "sudo cat /etc/passwd"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11Pansible-playbook rollback.yaml --check[K[K[K[K[K[K[K[K
+[?2004l
+PLAY [Rollback exercise 4] *********************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Rollback user creation task] *************************************************************************************************************************
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'fischer', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mueller', 'groups': 'wheel'})[0m
+[0;33mchanged: [host1.lab.drv.internal] => (item={'name': 'schmidt', 'groups': 'root'})[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item={'name': 'mayer', 'groups': 'root'})[0m
+
+PLAY RECAP *************************************************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ansible-playbook rollback.yamlssh host0.lab.drv.internal "sudo cat /etc/passwd"
+[?2004lroot:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+sssd:x:998:996:User for sssd:/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+chrony:x:997:995:chrony system user:/var/lib/chrony:/sbin/nologin
+user:x:1000:1000:DRV User:/home/user:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ ssh host0.lab.drv.internal "sudo cat /etc/passwd"[1P[1@1
+[?2004lroot:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+sssd:x:998:996:User for sssd:/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+chrony:x:997:995:chrony system user:/var/lib/chrony:/sbin/nologin
+user:x:1000:1000:DRV User:/home/user:/bin/bash
+mysql:x:27:27:MySQL Server:/var/lib/mysql:/sbin/nologin
+]0;user@workstation:~/ansible-labs/exercise-4/solution[?2004h[user@workstation solution]$ exit
+[?2004lexit
+
+Script done on 2024-05-14 23:33:36+02:00 [COMMAND_EXIT_CODE="0"]

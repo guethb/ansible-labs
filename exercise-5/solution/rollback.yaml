@@ -1,0 +1,11 @@
+---
+- name: Rollback exercise 4
+  hosts:
+    - host0.lab.drv.internal
+    - host1.lab.drv.internal
+  tasks:
+    - name: Rollback user creation task
+      ansible.builtin.user:
+        name: "{{ item['name'] }}"
+        state: absent
+      loop: "{{ users }}"

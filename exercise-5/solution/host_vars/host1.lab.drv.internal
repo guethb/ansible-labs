@@ -1,0 +1,5 @@
+users:
+  - name: fischer
+    groups: root
+  - name: schmidt
+    groups: root
