@@ -1,0 +1,159 @@
+Script started on 2024-05-15 12:51:27+02:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="120" LINES="30"]
+]0;user@workstation:~/ansible-labs/lab-5[?2004h[user@workstation lab-5]$ ansible-playbook playbook.yaml --ansible-yaml[K[K[K[K[K[K[K[K[K[K[K[Ksyntac[Kx-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/lab-5[?2004h[user@workstation lab-5]$ ansible-playbook playbook.yaml --syntax-check[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck
+[?2004l
+PLAY [Test register variable] ******************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Search home folders for hidden files] ****************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Print result] ****************************************************************************************************
+[0;32mok: [host0.lab.drv.internal] => {[0m
+[0;32m    "msg": "Here is your result, exclusively {'files': [{'path': '/home/user/.bash_logout', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 18, 'inode': 4429375, 'dev': 64768, 'nlink': 1, 'atime': 1715689458.113856, 'mtime': 1714476488.0, 'ctime': 1715599238.1740112, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.bash_profile', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 141, 'inode': 5199530, 'dev': 64768, 'nlink': 1, 'atime': 1715689122.5308454, 'mtime': 1714476488.0, 'ctime': 1715599238.1750114, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.bashrc', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 492, 'inode': 5199531, 'dev': 64768, 'nlink': 1, 'atime': 1715688885.5538378, 'mtime': 1714476488.0, 'ctime': 1715599238.1750114, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.lesshst', 'mode': '0600', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 20, 'inode': 4437322, 'dev': 64768, 'nlink': 1, 'atime': 1715601479.796977, 'mtime': 1715601479.796977, 'ctime': 1715601479.796977, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.bash_history', 'mode': '0600', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 833, 'inode': 4437318, 'dev': 64768, 'nlink': 1, 'atime': 1715768995.0466504, 'mtime': 1715765589.0496504, 'ctime': 1715765589.0496504, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mayer/.bash_logout', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1001, 'gid': 1001, 'size': 18, 'inode': 312733, 'dev': 64768, 'nlink': 1, 'atime': 1715599238.174011, 'mtime': 1714476488.0, 'ctime': 1715721119.9354665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mayer/.bash_profile', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1001, 'gid': 1001, 'size': 141, 'inode': 347782, 'dev': 64768, 'nlink': 1, 'atime': 1715599238.175011, 'mtime': 1714476488.0, 'ctime': 1715721119.9384665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mayer/.bashrc', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1001, 'gid': 1001, 'size': 492, 'inode': 347783, 'dev': 64768, 'nlink': 1, 'atime': 1715599238.175011, 'mtime': 1714476488.0, 'ctime': 1715721119.9414666, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mueller/.bash_logout', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1002, 'gid': 1002, 'size': 18, 'inode': 7050353, 'dev': 64768, 'nlink': 1, 'atime': 1715721119.935466, 'mtime': 1714476488.0, 'ctime': 1715721122.6954665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mueller/.bash_profile', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1002, 'gid': 1002, 'size': 141, 'inode': 7050354, 'dev': 64768, 'nlink': 1, 'atime': 1715721119.938466, 'mtime': 1714476488.0, 'ctime': 1715721122.6954665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mueller/.bashrc', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1002, 'gid': 1002, 'size': 492, 'inode': 7050355, 'dev': 64768, 'nlink': 1, 'atime': 1715721119.941466, 'mtime': 1714476488.0, 'ctime': 1715721122.6954665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}], 'changed': False, 'msg': 'All paths examined', 'matched': 11, 'examined': 23, 'skipped_paths': {}, 'failed': False}"[0m
+[0;32m}[0m
+
+PLAY RECAP *************************************************************************************************************
+[0;32mhost0.lab.drv.internal[0m     : [0;32mok=3   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/lab-5[?2004h[user@workstation lab-5]$ ansible-playbook playbook.yaml --check[K[K[K[K[K[K[K
+[?2004l
+PLAY [Test register variable] ******************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Search home folders for hidden files] ****************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Print result] ****************************************************************************************************
+[0;32mok: [host0.lab.drv.internal] => {[0m
+[0;32m    "msg": "Here is your result, exclusively {'files': [{'path': '/home/user/.bash_logout', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 18, 'inode': 4429375, 'dev': 64768, 'nlink': 1, 'atime': 1715689458.113856, 'mtime': 1714476488.0, 'ctime': 1715599238.1740112, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.bash_profile', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 141, 'inode': 5199530, 'dev': 64768, 'nlink': 1, 'atime': 1715689122.5308454, 'mtime': 1714476488.0, 'ctime': 1715599238.1750114, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.bashrc', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 492, 'inode': 5199531, 'dev': 64768, 'nlink': 1, 'atime': 1715688885.5538378, 'mtime': 1714476488.0, 'ctime': 1715599238.1750114, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.lesshst', 'mode': '0600', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 20, 'inode': 4437322, 'dev': 64768, 'nlink': 1, 'atime': 1715601479.796977, 'mtime': 1715601479.796977, 'ctime': 1715601479.796977, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/user/.bash_history', 'mode': '0600', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1000, 'gid': 1000, 'size': 833, 'inode': 4437318, 'dev': 64768, 'nlink': 1, 'atime': 1715768995.0466504, 'mtime': 1715765589.0496504, 'ctime': 1715765589.0496504, 'gr_name': 'user', 'pw_name': 'user', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mayer/.bash_logout', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1001, 'gid': 1001, 'size': 18, 'inode': 312733, 'dev': 64768, 'nlink': 1, 'atime': 1715599238.174011, 'mtime': 1714476488.0, 'ctime': 1715721119.9354665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mayer/.bash_profile', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1001, 'gid': 1001, 'size': 141, 'inode': 347782, 'dev': 64768, 'nlink': 1, 'atime': 1715599238.175011, 'mtime': 1714476488.0, 'ctime': 1715721119.9384665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mayer/.bashrc', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1001, 'gid': 1001, 'size': 492, 'inode': 347783, 'dev': 64768, 'nlink': 1, 'atime': 1715599238.175011, 'mtime': 1714476488.0, 'ctime': 1715721119.9414666, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mueller/.bash_logout', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1002, 'gid': 1002, 'size': 18, 'inode': 7050353, 'dev': 64768, 'nlink': 1, 'atime': 1715721119.935466, 'mtime': 1714476488.0, 'ctime': 1715721122.6954665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mueller/.bash_profile', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1002, 'gid': 1002, 'size': 141, 'inode': 7050354, 'dev': 64768, 'nlink': 1, 'atime': 1715721119.938466, 'mtime': 1714476488.0, 'ctime': 1715721122.6954665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}, {'path': '/home/mueller/.bashrc', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 1002, 'gid': 1002, 'size': 492, 'inode': 7050355, 'dev': 64768, 'nlink': 1, 'atime': 1715721119.941466, 'mtime': 1714476488.0, 'ctime': 1715721122.6954665, 'gr_name': '', 'pw_name': '', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}], 'changed': False, 'msg': 'All paths examined', 'matched': 11, 'examined': 23, 'skipped_paths': {}, 'failed': False}"[0m
+[0;32m}[0m
+
+PLAY RECAP *************************************************************************************************************
+[0;32mhost0.lab.drv.internal[0m     : [0;32mok=3   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/lab-5[?2004h[user@workstation lab-5]$ ^C[?2004l[?2004h[?2004l
+]0;user@workstation:~/ansible-labs/lab-5[?2004h[user@workstation lab-5]$ cd ..
+[?2004l]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ cd exercise-34[K/
+[?2004l]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ ös[K[Kl
+[?2004lbash: l: command not found
+]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ ls
+[?2004lansible.cfg  inventory  playbook.yaml  rollback.yaml  session.log  [0m[01;34msolution[0m
+]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ ls solution/
+[?2004l]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ ls session.log 
+[?2004lsession.log
+]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ ls session.log [1@e[C[1@s
+[?2004l[?1049h[22;0;0t[?1h=Script started on 2024-05-14 21:09:52+02:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="120" LINES="30"]
+[7mESC[27m]0;user@workstation:~/ansible-labs/exercise-3/solution[7m^GESC[27m[?2004h[user@workstation exercise-3/solution]$ ansible-pla ybook playbook.yaml --syntax-check
+[7mESC[27m[?2004l
+playbook: playbook.yaml
+[7mESC[27m]0;user@workstation:~/ansible-labs/exercise-3/solution[7m^GESC[27m[?2004h[user@workstation exercise-3/solution]$ ansible-pla ybook playbook.yaml --syntax[7mESC[27m[1[7mESC[27m[1[7mESC[27m[1[7mESC[27m[1[7mESC[27m[1[7mESC[27m[1[7mESC[27m[1P
+[7mESC[27m[?2004l
+PLAY [Demonstrate variable usage] **************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[7mESC[27m[0;32mok: [host1.lab.drv.internal][7mESC[27m[0m
+[7mESC[27m[0;32mok: [host0.lab.drv.internal][7mESC[27m[0m
+
+TASK [Install package httpd] *******************************************************************************************
+[7mESC[27m[0;32mok: [host1.lab.drv.internal][7mESC[27m[0m
+[7mESC[27m[0;32mok: [host0.lab.drv.internal][7mESC[27m[0m
+
+PLAY RECAP *************************************************************************************************************
+[7mESC[27m[0;32mhost0.lab.drv.internal[7mESC[27m[0m     : [7mESC[27m[0;32mok=2   [7mESC[27m[0m changed=0    unreachable=0    failed=0    skipped=0     rescued=0    ignored=0   
+[7mESC[27m[0;32mhost1.lab.drv.internal[7mESC[27m[0m     : [7mESC[27m[0;32mok=2   [7mESC[27m[0m changed=0    unreachable=0    failed=0    skipped=0     rescued=0    ignored=0   
+
+[7mESC[27m]0;user@workstation:~/ansible-labs/exercise-3/solution[7m^GESC[27m[?2004h[user@workstation exercise-3/solution]$ ssh host0.l ab.drv.internal
+[7mESC[27m[?2004l[7m^M[27mLast login: Tue May 14 21:10:33 2024 from 10.0.0.1
+[7mESC[27m]0;user@host0:~[7m^GESC[27m[?2004h[user@host0 ~]$ rpm -q httpd
+[7mESC[27m[?2004l[7m^M[27mhttpd-2.4.57-8.el9.x86_64
+[7msession.log[27m[K[K[?1l>[?1049l[23;0;0t]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ cat session.log 
+[?2004lScript started on 2024-05-14 21:09:52+02:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="120" LINES="30"]
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ansible-playbook playbook.yaml --syntax-check[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck
+[?2004l
+PLAY [Demonstrate variable usage] **************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Install package httpd] *******************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+
+PLAY RECAP *************************************************************************************************************
+[0;32mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;32mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ssh host0.lab.drv.internal
+[?2004lLast login: Tue May 14 21:10:33 2024 from 10.0.0.1
+]0;user@host0:~[?2004h[user@host0 ~]$ rpm -q httpd
+[?2004lhttpd-2.4.57-8.el9.x86_64
+]0;user@host0:~[?2004h[user@host0 ~]$ rpm -q httpd[K[K[K[K[Kmysql-server
+[?2004lpackage mysql-server is not installed
+]0;user@host0:~[?2004h[user@host0 ~]$ exit
+[?2004llogout
+Connection to host0.lab.drv.internal closed.
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ssh host0.lab.drv.internal[1P.lab.drv.internal1.lab.drv.internal
+[?2004lLast login: Tue May 14 21:10:34 2024 from 10.0.0.1
+]0;user@host1:~[?2004h[user@host1 ~]$ rpm -q httpd
+[?2004lpackage httpd is not installed
+]0;user@host1:~[?2004h[user@host1 ~]$ rpm -q httpd[K[K[K[K[Kmysql-server
+[?2004lmysql-server-8.0.36-1.el9_3.x86_64
+]0;user@host1:~[?2004h[user@host1 ~]$ exit
+[?2004llogout
+Connection to host1.lab.drv.internal closed.
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ ansible-playbook rollback.yaml 
+[?2004l
+PLAY [Demonstrate variable usage] **************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+[0;32mok: [host1.lab.drv.internal][0m
+
+TASK [Remove package httpd] ********************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+[0;33mchanged: [host1.lab.drv.internal][0m
+
+PLAY RECAP *************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-3/solution[?2004h[user@workstation exercise-3/solution]$ exit
+[?2004lexit
+
+Script done on 2024-05-14 21:16:02+02:00 [COMMAND_EXIT_CODE="0"]
+]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ ls
+[?2004lansible.cfg  inventory  playbook.yaml  rollback.yaml  session.log  [0m[01;34msolution[0m
+]0;user@workstation:~/ansible-labs/exercise-3[?2004h[user@workstation exercise-3]$ cd ..
+[?2004l]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ ls
+[?2004l[0m[01;34mexercise-1[0m  [01;34mexercise-3[0m  [01;34mexercise-5[0m  [01;34mlab-1[0m  [01;34mlab-3[0m  [01;34mlab-5[0m  [01;34mlab-7[0m
+[01;34mexercise-2[0m  [01;34mexercise-4[0m  [01;34mlab-0[0m       [01;34mlab-2[0m  [01;34mlab-4[0m  [01;34mlab-6[0m  LICENSE
+]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ ls exercise-4/
+[?2004l]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ ls
+[?2004l[0m[01;34mexercise-1[0m  [01;34mexercise-3[0m  [01;34mexercise-5[0m  [01;34mlab-1[0m  [01;34mlab-3[0m  [01;34mlab-5[0m  [01;34mlab-7[0m
+[01;34mexercise-2[0m  [01;34mexercise-4[0m  [01;34mlab-0[0m       [01;34mlab-2[0m  [01;34mlab-4[0m  [01;34mlab-6[0m  LICENSE
+]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ ls exercise-5/
+[?2004l[0m[01;34msolution[0m
+]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ ls exercise-5/solution/
+[?2004l[0m[01;34mhost_vars[0m  playbook.yaml  rollback.yaml  session.log
+]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ cd exercise-4/
+[?2004l]0;user@workstation:~/ansible-labs/exercise-4[?2004h[user@workstation exercise-4]$ ls
+[?2004l]0;user@workstation:~/ansible-labs/exercise-4[?2004h[user@workstation exercise-4]$ vi [K[K[Kls
+[?2004l]0;user@workstation:~/ansible-labs/exercise-4[?2004h[user@workstation exercise-4]$ cd ..
+[?2004l]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ ls
+[?2004l[0m[01;34mexercise-1[0m  [01;34mexercise-3[0m  [01;34mexercise-5[0m  [01;34mlab-1[0m  [01;34mlab-3[0m  [01;34mlab-5[0m  [01;34mlab-7[0m
+[01;34mexercise-2[0m  [01;34mexercise-4[0m  [01;34mlab-0[0m       [01;34mlab-2[0m  [01;34mlab-4[0m  [01;34mlab-6[0m  LICENSE
+]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ mkdir exercise-[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmv exercise-5 exercise-6
+[?2004l]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ mkdir exercise 5[K[K-5
+[?2004l]0;user@workstation:~/ansible-labs[?2004h[user@workstation ansible-labs]$ cd exercise-5
+[?2004l]0;user@workstation:~/ansible-labs/exercise-5[?2004h[user@workstati

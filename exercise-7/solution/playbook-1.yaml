@@ -1,0 +1,16 @@
+---
+- name: fetch a file
+  hosts: host0.lab.drv.internal
+  become: false
+  gather_facts: false
+  tasks:
+    - name: stat file
+      ansible.builtin.stat:
+        path: /home/user/iventory
+      register: result
+      failed_when: result['stat']['exists'] 
+    - name: fetch file from url
+      ansible.builtin.get_url:
+        url: "{{ url }}"
+        dest: /home/user
+

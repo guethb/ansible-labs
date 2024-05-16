@@ -1,0 +1,15 @@
+---
+- name: Test register variable
+  hosts: host0.lab.drv.internal
+  tasks:
+    - name: Search home folders for hidden files
+      ansible.builtin.find:
+        paths: /home
+        pattern: '.*'
+        recurse: true
+        hidden: true
+      register: result
+    - name: Print result
+      ansible.builtin.debug:
+        msg: Here is your result, exclusively {{ result }}
+
