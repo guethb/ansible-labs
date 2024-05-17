@@ -1,0 +1,24 @@
+---
+# tasks file for vhost
+- name: httpd is installed
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
+- name: httpd started and enabled
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: true
+- name: vhost file is installed
+  ansible.builtin.template:
+    src: vhost.conf.j2
+    dest: /etc/httpd/conf.d/vhost.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart httpd
+- name: firewall is open for http
+  ansible.posix.firewalld:
+    service: http
+    state: enabled
+

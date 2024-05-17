@@ -1,0 +1,60 @@
+Script started on 2024-05-17 01:35:57+02:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="89" LINES="30"]
+]0;user@workstation:~/ansible-labs/exercise-9/solution[?2004h$ .[Kansible-playbook playbook.yaml 
+[?2004l
+PLAY [create new vhost] *****************************************************************
+
+TASK [Gathering Facts] ******************************************************************
+[0;32mok: [host3.lab.drv.internal][0m
+
+TASK [output message] *******************************************************************
+[0;32mok: [host3.lab.drv.internal] => {[0m
+[0;32m    "msg": "ensure configured web server"[0m
+[0;32m}[0m
+
+TASK [vhost : httpd is installed] *******************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+TASK [vhost : httpd started and enabled] ************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+TASK [vhost : vhost file is installed] **************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+TASK [vhost : firewall is open for http] ************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+TASK [motd : deliver motd file] *********************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+RUNNING HANDLER [vhost : restart httpd] *************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+TASK [content in place] *****************************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+PLAY RECAP ******************************************************************************
+[0;33mhost3.lab.drv.internal[0m     : [0;32mok=9   [0m [0;33mchanged=7   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-9/solution[?2004h$ curl http://host3.lab.dev[K[Krv.internal
+[?2004l<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titel</title>
+  </head>
+  <body>
+    <h1>Gratulation DRV Team!</h1>
+  </body>
+</html>
+]0;user@workstation:~/ansible-labs/exercise-9/solution[?2004h$ ssh user@host3.labs.drv.internal[C[1P.drv.internal
+[?2004lWelcome to host3.
+Contact webmaster@lab.drv.internal for any questions.
+Last login: Fri May 17 01:37:17 2024 from 10.0.0.1
+]0;user@host3:~[?2004h[user@host3 ~]$ exit
+[?2004llogout
+Connection to host3.lab.drv.internal closed.
+]0;user@workstation:~/ansible-labs/exercise-9/solution[?2004h$ exit
+[?2004lexit
+
+Script done on 2024-05-17 01:38:56+02:00 [COMMAND_EXIT_CODE="0"]

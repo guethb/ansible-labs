@@ -1,0 +1,7 @@
+- name: use motd role
+  hosts: host3.lab.drv.internal
+  vars:
+    - admin_email: sysadmin@example.com
+  roles:
+     - role: motd
+

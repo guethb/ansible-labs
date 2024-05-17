@@ -1,0 +1,41 @@
+Script started on 2024-05-16 22:57:04+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="89" LINES="30"]
+]0;user@workstation:~/ansible-labs/lab-8[?2004h[user@workstation lab-8]$ ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/lab-8[?2004h[user@workstation lab-8]$ ansible-playbook playbook.yaml --syntax-check[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck[1Pcheck
+[?2004l
+PLAY [use motd role] ********************************************************************
+
+TASK [Gathering Facts] ******************************************************************
+[0;32mok: [host3.lab.drv.internal][0m
+
+TASK [motd : deliver motd file] *********************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+PLAY RECAP ******************************************************************************
+[0;33mhost3.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/lab-8[?2004h[user@workstation lab-8]$ ansible-playbook playbook.yaml --check[K[K[K[K[K[K[K[K
+[?2004l
+PLAY [use motd role] ********************************************************************
+
+TASK [Gathering Facts] ******************************************************************
+[0;32mok: [host3.lab.drv.internal][0m
+
+TASK [motd : deliver motd file] *********************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+
+PLAY RECAP ******************************************************************************
+[0;33mhost3.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/lab-8[?2004h[user@workstation lab-8]$ ssh host3.lab.drv.internal
+[?2004lWelcome to host3.
+Contact sysadmin@example.com for any questions.
+Last login: Thu May 16 22:58:33 2024 from 10.0.0.1
+]0;user@host3:~[?2004h[user@host3 ~]$ exit
+[?2004llogout
+Connection to host3.lab.drv.internal closed.
+]0;user@workstation:~/ansible-labs/lab-8[?2004h[user@workstation lab-8]$ exit
+[?2004lexit
+
+Script done on 2024-05-16 22:59:05+02:00 [COMMAND_EXIT_CODE="0"]

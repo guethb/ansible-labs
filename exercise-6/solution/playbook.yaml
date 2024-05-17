@@ -1,12 +1,16 @@
----
-- name: Create users with loop using host variables
-  hosts:
-    - host0.lab.drv.internal
-    - host1.lab.drv.internal
+- name: determine swapsize
+  hosts: all
   tasks:
-    - name: User creation task
-      ansible.builtin.user:
-        name: "{{ item['name'] }}"
-        state: present
-        groups: "{{ item['groups'] }}"
-      loop: "{{ users }}"
+    
+    - name: case RAM > 16GB
+      ansible.builtin.debug:
+        var: ansible_facts['memtotal_mb']
+    - name: case RAM > 16GB
+      ansible.builtin.debug:
+        msg: Swap size must be 16 GB 
+      when: (ansible_facts['memtotal_mb'] > 16384)
+    - name: case RAM <= 16GB
+      ansible.builtin.debug:
+        msg: Swap size must be {{ ansible_facts['memtotal_mb']}}
+      when: ansible_facts['memtotal_mb'] <= 16384
+

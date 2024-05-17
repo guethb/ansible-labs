@@ -1,0 +1,6 @@
+- name: Disable password Authentication in SSH
+  hosts: host0.lab.drv.internal
+  tasks:
+    - name: edit sshd.config
+      ansible.builtin.lineinfile:
+        
