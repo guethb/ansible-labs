@@ -1,0 +1,53 @@
+Script started on 2024-07-24 14:23:16+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="127" LINES="26"]
+]0;user@workstation:~/ansible-labs/exercise-7/solution[?2004h> ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/exercise-7/solution[?2004h> ansible-playbook playbook.yaml --syntax-check[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004l
+PLAY [Install apache webserver and mysql database] ****************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Package httpd installed] ************************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+TASK [Package mysql-server installed] *****************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+RUNNING HANDLER [Firewall open http traffic] **********************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+RUNNING HANDLER [Firewall open mysql service] *********************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+RUNNING HANDLER [Apache server restarted reboot safe] *************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+RUNNING HANDLER [Mysql server restarted reboot safe] **************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+PLAY RECAP ********************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=7   [0m [0;33mchanged=6   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-7/solution[?2004h> ansible-playbook role[Klback.yaml 
+[?2004l
+PLAY [Rollback installation of apache webserver and mysql database] ***********************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [Set firewall to disable services http and mysql] ************************************************************************
+[0;33mchanged: [host0.lab.drv.internal] => (item=mysql)[0m
+[0;33mchanged: [host0.lab.drv.internal] => (item=http)[0m
+
+TASK [Packages httpd and mysql-server uninstalled] ****************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+PLAY RECAP ********************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=3   [0m [0;33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-7/solution[?2004h> exit
+[?2004lexit
+
+Script done on 2024-07-24 14:27:01+02:00 [COMMAND_EXIT_CODE="0"]

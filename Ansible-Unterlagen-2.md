@@ -64,8 +64,8 @@ Achtung: Wenn eine Variable als erstes Element in einem Schlüssel-Wert-Paar ver
 ## Übung 4: Konfiguration
 
 1. Wo können Sie die Ansible Konfiguration ablegen?
-2. Erzeugen Sie eine Ansible Konfiguration im ihrem Home-Verzeichnis, die auf die Inventory-Datei mit dem Namen `~/inventory` verweist.
-3. Erzeugen Sie ein Inventory mit folgendem Inhalt:
+2. Erzeugen Sie eine Ansible Konfiguration in Ihrem Home-Verzeichnis, die auf die Inventory-Datei mit dem Namen `~/inventory` verweist.
+3. Erzeugen Sie unter `~/inventory` ein Inventory mit folgendem Inhalt:
 
 ```
 host0.lab.drv.internal
@@ -99,7 +99,7 @@ tasks:
 [Lab 6](https://github.com/guethb/ansible-labs/tree/main/lab-6)
 
 ## Übung 5: Schleifen
-Verwenden Sie die Dateien aus Lab 5. Unter der Verwendung von Host-Variablen, erzeugen Sie folgendes Szenario:
+Verwenden Sie die Dateien aus [Lab 6](https://github.com/guethb/ansible-labs/tree/main/lab-6). Unter der Verwendung von Host-Variablen, erzeugen Sie folgendes Szenario:
 
 1. Auf `host0` gibt es einen Benutzer mit der Kennung `mueller` in der Gruppe `wheel`
 1. Auf `host0` gibt es einen Benutzer mit der Kennung `mayer` in der Gruppe `root`
@@ -152,7 +152,12 @@ tasks:
 
 
 ## Übung 6: Bedingungen
-1. Für die Festlegung 
+Ein IT Betrieb legt folgende Regeln für die Größe des Swap-Speichers fest:
+
+* Verfügt der Server über mehr als 16GB RAM, soll die Swap-Partition 16GB groß sein
+* Verfügt der Server über bis zu 16GB RAM, soll die Swap-Partition genauso groß sein, wie der Arbeitsspeicher des Servers
+
+Erstellen Sie ein Playbook, welches für jeden Host die Soll-Größe des Swap-Speichers angibt.
 
 ## Blöcke
 * Blöcke gruppieren mehrere Tasks
@@ -201,7 +206,7 @@ handlers:
 ```
 ## Übung 7: Handler
 1. Schreiben Sie ein Playbook, welches auf `host0` die Pakete `mysql-server` und `httpd` installiert
-2. Schreiben Sie einen Handler, der bei erfolgreicher Installation von `httpd` den Service `httpd` an der Firewall freischaltet
+2. Schreiben Sie einen Handler, der bei erfolgreicher Installation von `httpd` den Service `http` an der Firewall freischaltet
 3. Schreiben Sie einen Handler, der den `httpd` Service bei erfolgreicher Installation rebootfest startet
 4. Schreiben Sie einen Handler, der bei erfolgreicher Installation von `mysql-server` den Service `mysql` an der Firewall freischaltet
 5. Schreiben Sie einen Handler, der den `mysqld` Service bei erfolgreicher Installation rebootfest startet
@@ -269,7 +274,7 @@ Trotzdem gibt es noch andere Module, die gegebenenfalls einfacher zu verwenden s
 |`patch`|Wendet Patches auf Dateien an, ähnlich GNU `patch`|
 
 ## Übung 9: Einfache Textoperation
-1. Stellen Sie sicher, dass die Passwortauthentifizierung auf allen Hosts möglich ist
+1. Stellen Sie sicher, dass die Passwortauthentifizierung für SSH-Zugänge auf allen Hosts gesperrt ist
 
 ## Grundlage zu Templates
 * Grundlage ist eine Textdatei, die als Schablone dient
@@ -283,22 +288,18 @@ Trotzdem gibt es noch andere Module, die gegebenenfalls einfacher zu verwenden s
 * Es existiert eine ausführliche [Dokumentation zu Jinja2](https://jinja.palletsprojects.com/en/3.1.x/templates/)
 
 ## Übung 10: Templating Grundlagen
-1. Erstellen Sie ein Template für einen Bericht über Hosts, der den Hostnamen, Zeitpunkt der Bericherstellung, installiertem Betriebssystem, Version des Betriebssystes. Anzahl der Prozessoren und Prozessorkerne und vorhandenem Speicher enthält
+1. Erstellen Sie ein Template für einen Bericht über Hosts, der den Hostnamen, Zeitpunkt der Bericherstellung, installiertem Betriebssystem, Version des Betriebssystems. Anzahl der Prozessoren und Prozessorkerne und vorhandenem Speicher enthält
 1. Verwenden Sie `ansible.builtin.template` um den Bericht auf dem Host zu erstellen
 1. Holen Sie den fertigen Bericht vom Host ab
 
 ## Loops
 * Schleifen iterieren über eine Liste
-* 
 
 ```
 {% for item in list %}
 {{ item }}
 {% endfor %}
 ```
-
-## Übung 10: Loops
-Erweitern Sie den Bericht aus Übung 9 um Netzwerkinterfaces mit Informationen zu vorhandenen Netzwerkinterfaces, ihren MAC- und IPv4-Adressen und der Netzwerkmaske.
 
 ## Bedingungen
 ```
@@ -315,6 +316,9 @@ Erweitern Sie den Bericht aus Übung 9 um Netzwerkinterfaces mit Informationen z
 * Gut lesbare Ergebnisse erzeugt man mit `to_nice_json` bzw. `to_nice_yaml`
 * Die Jinja2 Dokumentation enthält eine [vollständige Liste der verfügbaren Filter](https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-builtin-filters)
 
+## Übung 11: Loops & Filter
+Erweitern Sie den Bericht aus Übung 10 um Netzwerkinterfaces mit Informationen zu vorhandenen Netzwerkinterfaces, ihren MAC- und IPv4-Adressen und der Netzwerkmaske.
+
 # Rollen
 
 * Möglichkeit, Ansible-Code wiederzuverwenden
@@ -326,8 +330,8 @@ Erweitern Sie den Bericht aus Übung 9 um Netzwerkinterfaces mit Informationen z
     * Mit `ansible.builtin.import_role` kann eine Rolle statisch importiert werden
     * Mit `ansible.builtin.include_role` kann eine Rolle dynamisch importiert werden
 * Es ist möglich, mehrere Rollen zu importieren
-* Mit den Schlüsselworten `pre_tasks` und `post_tasks` können auf Play-Ebene 
-* Es ist _nicht empfohlen
+* Mit den Schlüsselworten `pre_tasks` und `post_tasks` können auf Play-Ebene Tasks definieren
+* Es ist _nicht_ empfohlen
 
 Die Verzeichnisstruktur einer Rolle:
 
@@ -398,7 +402,7 @@ Hinweise zum Erstellen von Rollen:
 
 s. a. [Red Hat Good Practices for Ansible](https://redhat-cop.github.io/automation-good-practices/#_roles_good_practices_for_ansible)
 
-## Übung 11: Rolle erstellen
+## Übung 12: Rolle erstellen
 1. Kopieren Sie die Rolle `motd` in das richtige Verzeichnis Ihres Projektes
 1. Erstellen Sie eine neue Rolle mit Namen `vhost`
 1. Löschen Sie die Unterverzeichnisse `test` und `vars` der `vhost` Rolle

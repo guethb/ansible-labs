@@ -1,5 +1,5 @@
 ---
-- name: Install Apache and start httpd
+- name: Uninstall Apache
   hosts: host0.lab.drv.internal
   tasks:
     - name: Ensure httpd is stopped and disabled

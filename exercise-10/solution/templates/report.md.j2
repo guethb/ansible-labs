@@ -1,0 +1,15 @@
+# Host Report Example
+Report Date: {{ ansible_facts['date_time']['date'] }}
+
+| *General Information* | |
+|---|---|
+|Hostname|{{ ansible_facts['hostname'] }}|
+|Operating System|{{ ansible_facts['distribution'] }}|
+|OS Release|{{ ansible_facts['distribution_version'] }}|
+
+
+| *Hardware Parameters* | |
+|---|---|
+|No. CPU|{{ ansible_facts['processor_count'] }}|
+|No. Cores|{{ ansible_facts['processor_cores'] }}|
+|Total Memory [MB]|{{ ansible_facts['memtotal_mb'] }}|

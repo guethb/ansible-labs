@@ -1,0 +1,39 @@
+---
+- name: Install apache webserver and mysql database
+  hosts: host0.lab.drv.internal
+  tasks:
+  - name: Package httpd installed
+    ansible.builtin.dnf:
+      name: httpd
+      state: present
+    notify:
+    - Firewall open http traffic
+    - Apache server restarted reboot safe
+  - name: Package mysql-server installed
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: present
+    notify:
+    - Firewall open mysql service
+    - Mysql server restarted reboot safe
+  handlers:
+  - name: Firewall open http traffic
+    ansible.posix.firewalld:
+      service: http
+      state: enabled
+      permanent: true
+  - name: Firewall open mysql service
+    ansible.posix.firewalld:
+      service: mysql
+      state: enabled
+      permanent: true
+  - name: Apache server restarted reboot safe
+    ansible.builtin.service:
+      name: httpd
+      state: restarted
+      enabled: true
+  - name: Mysql server restarted reboot safe
+    ansible.builtin.service:
+      name: mysqld
+      state: restarted
+      enabled: true

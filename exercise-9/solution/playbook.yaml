@@ -1,6 +1,16 @@
 - name: Disable password Authentication in SSH
-  hosts: host0.lab.drv.internal
+  hosts: all
   tasks:
-    - name: edit sshd.config
+    - name: ensure password authentication to be forbidden
       ansible.builtin.lineinfile:
-        
+        path: /etc/ssh/sshd_config
+        regexp: "^PasswordAuthentication"
+        line: PasswordAuthentication no
+        state: present
+      notify: ssh server restarted
+    - name: 
+  handlers:
+    - name: ssh server restarted
+      ansible.builtin.service:
+        service: sshd
+        state: restarted

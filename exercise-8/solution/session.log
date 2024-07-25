@@ -1,0 +1,80 @@
+Script started on 2024-07-24 14:51:46+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="127" LINES="26"]
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> ansible-playbook playbook-1.yaml -e url="[7mhttps://raw.githubusercontent.com/guethb/ansible-labs/main/lab-1/inventory[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://raw.githubusercontent.com/guethb/ansible-labs/main/lab-1/inventory"
+[?2004l
+PLAY [fetch a file] ***********************************************************************************************************
+
+TASK [stat file] **************************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [fetch file from url] ****************************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+PLAY RECAP ********************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> ssh host0 ls
+[?2004linventory
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> ssh host0 ls[K[Kcat inventory
+[?2004l[webserver]
+web[0:3].acme.com
+
+[munich]
+web0.acme.com
+web1.acme.com
+
+[berlin]
+web2.acme.com
+
+[frankfurt]
+web3.acme.com
+
+[development]
+web0.acme.com
+
+[testing]
+web1.acme.com
+
+[production]
+web2.acme.com
+web3.acme.com
+
+[non_prod:children]
+development
+testing
+
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> ssh host0 cat inventoryls[K[C[Cansible-playbook playbook-1.yaml -e url="https://raw.githubusercontent.com/guethb/ansible-labs/main/lab-1/inventory"
+[?2004l
+PLAY [fetch a file] ***********************************************************************************************************
+
+TASK [stat file] **************************************************************************************************************
+[0;31mfatal: [host0.lab.drv.internal]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "changed": false, "failed_when_result": true, "stat": {"atime": 1721825614.849, "attr_flags": "", "attributes": [], "block_size": 4096, "blocks": 8, "charset": "us-ascii", "checksum": "aef9b368c4fae7ae20e3c1e10d73c9c4102ab332", "ctime": 1721825593.49, "dev": 64768, "device_type": 0, "executable": false, "exists": true, "gid": 1000, "gr_name": "user", "inode": 6697572, "isblk": false, "ischr": false, "isdir": false, "isfifo": false, "isgid": false, "islnk": false, "isreg": true, "issock": false, "isuid": false, "mimetype": "text/plain", "mode": "0644", "mtime": 1721825593.49, "nlink": 1, "path": "/home/user/inventory", "pw_name": "user", "readable": true, "rgrp": true, "roth": true, "rusr": true, "size": 257, "uid": 1000, "version": "1151831661", "wgrp": false, "woth": false, "writeable": true, "wusr": true, "xgrp": false, "xoth": false, "xusr": false}}[0m
+
+PLAY RECAP ********************************************************************************************************************
+[0;31mhost0.lab.drv.internal[0m     : ok=0    changed=0    unreachable=0    [0;31mfailed=1   [0m skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> ansible-playbook playbook-1.yaml -e url="https://raw.githubusercontent.com/guethb/ansible-labs/main/lab-1/inventory"[C[C[C[C[C[C[C[1P[1@2
+[?2004l
+PLAY [fetch a file] ***********************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+TASK [stat file] **************************************************************************************************************
+[0;31mfatal: [host0.lab.drv.internal]: FAILED! => {"changed": false, "failed_when_result": true, "stat": {"atime": 1721825614.849, "attr_flags": "", "attributes": [], "block_size": 4096, "blocks": 8, "charset": "us-ascii", "checksum": "aef9b368c4fae7ae20e3c1e10d73c9c4102ab332", "ctime": 1721825593.49, "dev": 64768, "device_type": 0, "executable": false, "exists": true, "gid": 1000, "gr_name": "user", "inode": 6697572, "isblk": false, "ischr": false, "isdir": false, "isfifo": false, "isgid": false, "islnk": false, "isreg": true, "issock": false, "isuid": false, "mimetype": "text/plain", "mode": "0644", "mtime": 1721825593.49, "nlink": 1, "path": "/home/user/inventory", "pw_name": "user", "readable": true, "rgrp": true, "roth": true, "rusr": true, "size": 257, "uid": 1000, "version": "1151831661", "wgrp": false, "woth": false, "writeable": true, "wusr": true, "xgrp": false, "xoth": false, "xusr": false}}[0m
+
+TASK [copy file with timestamp] ***********************************************************************************************
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+TASK [fetch file from url] ****************************************************************************************************
+[0;32mok: [host0.lab.drv.internal][0m
+
+PLAY RECAP ********************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=3   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    [0;32mrescued=1   [0m ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> ssh host0 ls
+[?2004linventory
+inventory-1721825643
+]0;user@workstation:~/ansible-labs/exercise-8/solution[?2004h> exit
+[?2004lexit
+
+Script done on 2024-07-24 14:53:46+02:00 [COMMAND_EXIT_CODE="0"]

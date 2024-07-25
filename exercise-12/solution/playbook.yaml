@@ -1,0 +1,23 @@
+---
+- name: create new vhost
+  hosts: host3.lab.drv.internal
+  vars:
+    admin_email: webmaster@lab.drv.internal
+    webmaster: webmaster@lab.drv.internal
+  pre_tasks:
+    - name: output message
+      ansible.builtin.debug:
+        msg: ensure configured web server
+
+  roles:
+    - vhost
+    - motd
+
+  post_tasks:
+    - name: content in place
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: "/var/www/vhosts/{{ ansible_facts['hostname']}}/"
+        owner: apache
+        group: apache
+        mode: 0644

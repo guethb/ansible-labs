@@ -1,8 +1,7 @@
 - name: determine swapsize
   hosts: all
   tasks:
-    
-    - name: case RAM > 16GB
+    - name: Display size
       ansible.builtin.debug:
         var: ansible_facts['memtotal_mb']
     - name: case RAM > 16GB
@@ -13,4 +12,3 @@
       ansible.builtin.debug:
         msg: Swap size must be {{ ansible_facts['memtotal_mb']}}
       when: ansible_facts['memtotal_mb'] <= 16384
-

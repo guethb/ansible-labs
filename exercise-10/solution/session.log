@@ -1,0 +1,55 @@
+Script started on 2024-07-24 22:44:54+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="127" LINES="26"]
+]0;user@workstation:~/ansible-labs/exercise-10/solution[?2004h> ansible-playbook playbook.yaml --syntax-check
+[?2004l
+playbook: playbook.yaml
+]0;user@workstation:~/ansible-labs/exercise-10/solution[?2004h> ansible-playbook playbook.yaml --syntax-check[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004l
+PLAY [report generator] *******************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+[0;32mok: [host1.lab.drv.internal][0m
+[0;32mok: [host0.lab.drv.internal][0m
+[0;32mok: [host2.lab.drv.internal][0m
+[0;32mok: [host3.lab.drv.internal][0m
+
+TASK [evaluate template] ******************************************************************************************************
+[0;33mchanged: [host3.lab.drv.internal][0m
+[0;33mchanged: [host2.lab.drv.internal][0m
+[0;33mchanged: [host1.lab.drv.internal][0m
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+TASK [get report] *************************************************************************************************************
+[0;33mchanged: [host1.lab.drv.internal][0m
+[0;33mchanged: [host3.lab.drv.internal][0m
+[0;33mchanged: [host2.lab.drv.internal][0m
+[0;33mchanged: [host0.lab.drv.internal][0m
+
+PLAY RECAP ********************************************************************************************************************
+[0;33mhost0.lab.drv.internal[0m     : [0;32mok=3   [0m [0;33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost1.lab.drv.internal[0m     : [0;32mok=3   [0m [0;33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost2.lab.drv.internal[0m     : [0;32mok=3   [0m [0;33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[0;33mhost3.lab.drv.internal[0m     : [0;32mok=3   [0m [0;33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+]0;user@workstation:~/ansible-labs/exercise-10/solution[?2004h> ls reports/
+[?2004lhost0.lab.drv.internal  host1.lab.drv.internal  host2.lab.drv.internal  host3.lab.drv.internal
+]0;user@workstation:~/ansible-labs/exercise-10/solution[?2004h> cat reports/host0.lab.drv.internal 
+[?2004l# Host Report Example
+Report Date: 2024-07-24
+
+| *General Information* | |
+|---|---|
+|Hostname|host0|
+|Operating System|Rocky|
+|OS Release|9.4|
+
+
+| *Hardware Parameters* | |
+|---|---|
+|No. CPU|1|
+|No. Cores|1|
+|Total Memory [MB]|769|
+
+]0;user@workstation:~/ansible-labs/exercise-10/solution[?2004h> exit
+[?2004lexit
+
+Script done on 2024-07-24 22:45:38+02:00 [COMMAND_EXIT_CODE="0"]

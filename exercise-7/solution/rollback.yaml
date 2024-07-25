@@ -1,0 +1,19 @@
+---
+- name: Rollback installation of apache webserver and mysql database
+  hosts: host0.lab.drv.internal
+  tasks:
+  - name: Set firewall to disable services http and mysql
+    ansible.posix.firewalld:
+      service: "{{ item }}"
+      state: disabled
+      permanent: true
+    loop:
+      - mysql
+      - http
+  - name: Packages httpd and mysql-server uninstalled
+    ansible.builtin.dnf:
+      name:
+        - httpd
+        - mysql-server
+      state: absent
+      autoremove: true
